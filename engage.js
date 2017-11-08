@@ -6,7 +6,7 @@ window.onload = function() {
         minfs = 9,
         scw = block.scrollWidth,
         w = block.offsetWidth;
-    if (scw > w) {
+    if (scw < w) {
       var fontsize = parseInt($(block).css('font-size'), 10) - step;
       if (fontsize >= minfs){
         $(block).css('font-size',fontsize+'px')

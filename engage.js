@@ -41,8 +41,8 @@ window.onload = function() {
               
         limit = output.length;
      
-     if(limit > 15 ) {
-        scale($('#result'))
+     if(limit > 16 ) {
+        scale($('#result')[0])
       }
     },false);
     
@@ -86,6 +86,7 @@ window.onload = function() {
   document.querySelector("#delete").addEventListener("click",function() {
 
       screen.innerHTML = "";
+      document.getElementById('result').style.fontSize = '20px'
 
   },false);
 
@@ -104,8 +105,15 @@ window.onload = function() {
       else if (screen.innerHTML == "" && operator == '-'){
         screen.innerHTML += operator
       }
-      else if(output) {
+      else if(output && output.length < 16) {
+        // if (output.length > 14){
+        //   scale($('#result')[0])
+        // }
         screen.innerHTML = output.concat(operator);
+      }
+      else {
+        screen.innerHTML = output.concat(operator);
+        scale($('#result')[0])
       }
      
     },false); 
